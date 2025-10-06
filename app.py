@@ -144,6 +144,10 @@ def agent_endpoint():
         return jsonify({"reply": str(result)}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+        
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "5000"))
